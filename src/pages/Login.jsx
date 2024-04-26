@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
 import SocialLogin from "../components/SocialLogin";
 import { Helmet } from "react-helmet";
-
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Login = () => {
   return (
@@ -12,8 +13,9 @@ const Login = () => {
       <Helmet>
         <title>Login</title>
       </Helmet>
+      <Navbar></Navbar>
       <h2>Login Page</h2>
-     
+     <Footer></Footer>
     </div>
   );
 };

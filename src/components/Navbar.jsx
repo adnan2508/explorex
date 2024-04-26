@@ -23,7 +23,7 @@ const Navbar = () => {
         <li><a className='text-black'>Item 3</a></li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">Explorex</a>
+    <Link to='/' className="btn btn-ghost text-xl">Explorex</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -42,8 +42,8 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn btn-error mr-5 px-8 text-white">Login</a>
-    <a className="btn btn-success px-7 text-white">Register</a>
+    <Link to='/login' className="btn btn-error mr-5 px-8 text-white">Login</Link>
+    <Link to='/register' className="btn btn-success px-7 text-white">Register</Link>
   </div>
 </div>
     </div>

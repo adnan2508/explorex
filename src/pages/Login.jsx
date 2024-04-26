@@ -10,27 +10,48 @@ import Footer from "../components/Footer";
 const Login = () => {
   const [loginError, setLoginError] = useState('');
   const [success, setSuccess] = useState('');
-  // const { signInUser } = useAuth();
+  const { signInUser } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || "/";
+
+  const onSubmit = (data) => {
+    console.log(data);
+    const { email, password } = data;
+
+    signInUser(email, password).then((result) => {
+      if (result.user) {
+        setSuccess('User Logged in successfully!')
+        navigate(from);
+      }
+    })
+    .catch(error => {
+      setLoginError("Oops! Invalid Email or Password");
+    })
+    ;
+  };
+
   return (
     <div>
       <Helmet>
-        <title>Login</title>
+        <title>Explorex- Login</title>
       </Helmet>
       <Navbar></Navbar>
 
-      <div className="w-11/12 mx-auto mt-20 md:mt-10 min-h-screen bg-base-200 rounded-3xl animate__animated animate__jello">
+      <div className="w-11/12 mx-auto mt-20 mb-20 md:mt-10 min-h-screen bg-base-200 rounded-3xl animate__animated animate__jello">
         <div className="flex flex-col gap-10 items-center justify-center p-8">
           <div className="text-center mt-12 lg:text-left">
             <h1 className="text-5xl font-bold">Please Login</h1>
           </div>
 
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form oonSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

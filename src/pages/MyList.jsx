@@ -7,7 +7,7 @@ const MyList = () => {
         <div>
             <Navbar></Navbar>
 
-            <div className='w-11/12 mx-auto'>
+            <div className='w-11/12 mx-auto my-10'>
                 <h1>Welcome this is your list!🎉</h1>
             </div>
             

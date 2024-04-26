@@ -35,10 +35,10 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-              <Link to="/addTouristSpot">Add Tourist Spot</Link>
+              <Link to="/addTouristSpot" className="text-black">Add Tourist Spot</Link>
             </li>
             <li>
-              <Link to="/myList">My List</Link>
+              <Link to="/myList" className="text-black">My List</Link>
             </li>
                 <li>
                   <a className="text-black">Parent</a>

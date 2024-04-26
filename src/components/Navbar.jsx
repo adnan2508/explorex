@@ -37,6 +37,9 @@ const Navbar = () => {
                 <li>
               <Link to="/addTouristSpot">Add Tourist Spot</Link>
             </li>
+            <li>
+              <Link to="/myList">My List</Link>
+            </li>
                 <li>
                   <a className="text-black">Parent</a>
                   <ul className="p-2">
@@ -101,6 +104,9 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/addTouristSpot">Add Tourist Spot</Link>
+            </li>
+            <li>
+              <Link to="/myList">My List</Link>
             </li>
             <li>
               <details>

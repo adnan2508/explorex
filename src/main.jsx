@@ -9,6 +9,8 @@ import Register from "./pages/Register.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import AuthProvider from "./authProvider/AuthProvider.jsx";
 import AllTouristSpot from "./pages/AllTouristSpot.jsx";
+import AddTouristSpot from "./pages/AddTouristSpot.jsx";
+import PrivateRoute from "./layouts/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/allTouristSpot",
     element: <AllTouristSpot></AllTouristSpot>,
+  },
+  {
+    path: "/addTouristSpot",
+    element: <PrivateRoute><AddTouristSpot></AddTouristSpot></PrivateRoute>,
   },
   {
     path: "/login",

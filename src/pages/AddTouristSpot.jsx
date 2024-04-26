@@ -6,7 +6,7 @@ const AddTouristSpot = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className='w-11/12 mx-auto'>
+            <div className='w-11/12 mx-auto my-10'>
                 <h2>Welcome You're in!🎉</h2>
             </div>
             <Footer></Footer>

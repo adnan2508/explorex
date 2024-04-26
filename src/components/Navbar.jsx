@@ -35,6 +35,9 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
+              <Link to="/addTouristSpot">Add Tourist Spot</Link>
+            </li>
+                <li>
                   <a className="text-black">Parent</a>
                   <ul className="p-2">
                     <li className="text-black">
@@ -64,6 +67,20 @@ const Navbar = () => {
                     All Tourist Spot
                   </Link>
                 </li>
+                <li>
+                  <a className="text-black">Parent</a>
+                  <ul className="p-2">
+                    <li className="text-black">
+                      <a>Submenu 1</a>
+                    </li>
+                    <li className="text-black">
+                      <a>Submenu 2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a className="text-black">Item 3</a>
+                </li>
               </ul>
             )}
           </div>
@@ -71,6 +88,7 @@ const Navbar = () => {
             Explorex
           </Link>
         </div>
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
@@ -78,6 +96,9 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/allTouristSpot">All Tourist Spot</Link>
+            </li>
+            <li>
+              <Link to="/addTouristSpot">Add Tourist Spot</Link>
             </li>
             <li>
               <details>
@@ -106,7 +127,7 @@ const Navbar = () => {
             Register
           </Link>
         </div>
-        
+
       </div>
     </div>
   );

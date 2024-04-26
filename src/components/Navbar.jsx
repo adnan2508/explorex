@@ -148,13 +148,34 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
-          
-          <Link to="/login" className="btn btn-error mr-5 px-8 text-white">
+          {
+            user?
+            <>
+            <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+            <div tabIndex={0} role="button" className="avatar online btn btn-ghost btn-circle mr-8">
+                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <Link>
+                  <img alt="User Image" src={
+                    user?.photoURL || "https://parikhpower.in/wp-content/uploads/sites/7/2017/09/profile-placeholder.png"
+                } />
+                  </Link>
+                  
+                </div>
+              </div>
+            </div>
+            <button onClick={logout} className="btn btn-error text-white px-8">Logout</button>
+            </>
+            :
+            <>
+            <Link to="/login" className="btn btn-error mr-5 px-8 text-white">
             Login
           </Link>
-          <Link to="/register" className="btn btn-success px-7 text-white">
+         
+         <Link to="/register" className="btn btn-success px-7 text-white">
             Register
           </Link>
+          </>
+          }
         </div>
 
       </div>

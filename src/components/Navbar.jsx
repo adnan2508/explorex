@@ -26,15 +26,9 @@ const Navbar = () => {
               </svg>
             </div>
             {user ? (
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
-                <li>
-                  <Link to="/" className="text-black">
-                    Home
-                  </Link>
-                </li>
+                <li> <Link to="/" className="text-black"> Home </Link> </li>
                 <li>
                   <Link to="/allTouristSpot" className="text-black">
                     All Tourist Spot
@@ -103,6 +97,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+
         <div className="navbar-end">
           <Link to="/login" className="btn btn-error mr-5 px-8 text-white">
             Login
@@ -111,6 +106,7 @@ const Navbar = () => {
             Register
           </Link>
         </div>
+        
       </div>
     </div>
   );

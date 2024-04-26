@@ -90,7 +90,9 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          {
+            user?
+            <ul className="menu menu-horizontal px-1">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -117,9 +119,36 @@ const Navbar = () => {
               <a>Item 3</a>
             </li>
           </ul>
+          :
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/allTouristSpot">All Tourist Spot</Link>
+            </li>
+            <li>
+              <details>
+                <summary>Parent</summary>
+                <ul className="p-2">
+                  <li className="text-black">
+                    <a>Submenu 1</a>
+                  </li>
+                  <li className="text-black">
+                    <a>Submenu 2</a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <a>Item 3</a>
+            </li>
+          </ul>
+          }
         </div>
 
         <div className="navbar-end">
+          
           <Link to="/login" className="btn btn-error mr-5 px-8 text-white">
             Login
           </Link>

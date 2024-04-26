@@ -11,6 +11,7 @@ const Login = () => {
   const [loginError, setLoginError] = useState('');
   const [success, setSuccess] = useState('');
   const { signInUser } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -51,7 +52,7 @@ const Login = () => {
           </div>
 
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form oonSubmit={handleSubmit(onSubmit)} className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

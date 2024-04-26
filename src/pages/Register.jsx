@@ -62,7 +62,7 @@ const Register = () => {
             </div>
 
             <div className="card w-full shadow-2xl bg-base-100">
-              <form onSubmit={handleSubmit()} className="card-body">
+              <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
               <label className="label">
                     <span className="label-text">Full Name</span>
@@ -142,7 +142,33 @@ const Register = () => {
                     </p>
                   </label>
                 </div>
+                <div className="flex gap-2">
+               <input 
+               type="checkbox" 
+               name="terms" 
+               id="terms" 
+               {...register("terms", { required: true })}/>
+                <label htmlFor="terms">Accept our Terms and Conditions</label>
+               </div>
+               {errors.terms && (
+                    <span className="text-red-600 text-center">Please Accept our Terms And Conditions</span>
+                  )}
+                  <div className="form-control mt-4">
+                  <button className="btn btn-primary text-white">
+                    Register Account
+                  </button>
+                </div>
               </form>
+              {
+                registerError && <div className="flex justify-center items-center mb-2">
+                <p className="text-red-700 text-lg font-medium text-center">{registerError}</p>
+              </div>
+              }
+              {
+                success && <div className="flex justify-center items-center mb-2">
+                  <p className="text-green-700 text-lg font-medium text-center">{success}</p>
+                </div>
+              }
             </div>
 
 

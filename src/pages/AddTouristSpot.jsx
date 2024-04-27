@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet";
+import Swal from 'sweetalert2';
 
 const AddTouristSpot = () => {
     const handleAddSpot = event => {
@@ -21,6 +22,27 @@ const AddTouristSpot = () => {
 
         const newSpot = {spotName, country, location, cost, description, season, visitor, time, name, email, image};
         console.log(newSpot);
+
+        //send data to the server
+        fetch('http://localhost:5000/spot', {
+            method: 'POST',
+            headers: {
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(newSpot)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Tourist Spot Added Successfully!',
+                    icon: 'success',
+                    confirmButtonText: 'Done'
+                  })
+            }
+        })
     }
   return (
     <div>

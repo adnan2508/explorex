@@ -4,6 +4,24 @@ import Footer from "../components/Footer";
 import { Helmet } from "react-helmet";
 
 const AddTouristSpot = () => {
+    const handleAddSpot = event => {
+        event.preventDefault();
+        const form = event.target;
+        const spotName = form.spotName.value;
+        const country = form.country.value;
+        const location = form.location.value;
+        const cost = form.cost.value;
+        const description = form.description.value;
+        const season = form.season.value;
+        const visitor = form.visitor.value;
+        const time = form.time.value;
+        const name = form.name.value;
+        const email = form.email.value;
+        const image = form.image.value;
+
+        const newSpot = {spotName, country, location, cost, description, season, visitor, time, name, email, image};
+        console.log(newSpot);
+    }
   return (
     <div>
       <Helmet>
@@ -14,7 +32,7 @@ const AddTouristSpot = () => {
       <div className="w-11/12 mx-auto my-10">
         <h2 className="text-center text-5xl font-bold">Add Tourist Spot</h2>
 
-        <form>
+        <form onSubmit={handleAddSpot}>
           <div className="w-11/12 mx-auto flex flex-col md:flex-row gap-5">
             {/* single row */}
             <label className="form-control w-full">

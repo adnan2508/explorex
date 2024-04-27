@@ -13,7 +13,7 @@ const AllTouristSpot = () => {
             </Helmet>
             <Navbar></Navbar>
             <div className='w-11/12 mx-auto mt-10 mb-10'>
-            <h2>All tourist spot: {spots.length}</h2>
+            <h2 className='text-center text-5xl font-bold'>All tourist spot: {spots.length}</h2>
             </div>
             <Footer></Footer>
         </div>

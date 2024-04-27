@@ -155,7 +155,7 @@ const AddTouristSpot = () => {
             </label>
           </div>
           
-            <input className="btn btn-primary w-11/12 mx-auto flex justify-center text-white my-8" value='Add Spot'/>
+            <input type="submit" className="btn bg-[#4E4E4E] w-11/12 mx-auto flex justify-center text-white my-8" value='Add Spot'/>
           
         </form>
       </div>

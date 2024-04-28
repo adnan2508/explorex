@@ -28,9 +28,10 @@ const SpotDetails = () => {
           <p className="text-lg">Seasonality: {spot.season}</p>
           <p className="text-lg">User Name: {spot.name}</p>
           <p className="text-lg">User Email: {spot.email}</p>
+
           <div className="card-actions justify-end">
-            <Link to="/">
-              <button className="btn btn-primary text-white px-8">Home</button>
+            <Link to="/allTouristSpot">
+              <button className="btn btn-primary text-white px-8">Go Back</button>
             </Link>
           </div>
         </div>

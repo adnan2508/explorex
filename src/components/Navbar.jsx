@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css'
 
 const Navbar = () => {
   const { logout, user } = useAuth();
@@ -157,7 +159,8 @@ const Navbar = () => {
           {
             user?
             <>
-            <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+            {/* <div className="tooltip tooltip-bottom" data-tip={user.displayName}> */}
+            <a data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} data-tooltip-place="left">
             <div tabIndex={0} role="button" className="avatar online btn btn-ghost btn-circle mr-8">
                 <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                   <Link>
@@ -168,7 +171,9 @@ const Navbar = () => {
                   
                 </div>
               </div>
-            </div>
+              </a>
+              <Tooltip id="my-tooltip" />
+            {/* </div> */}
             <button onClick={logout} className="btn btn-error text-white px-8">Logout</button>
             </>
             :

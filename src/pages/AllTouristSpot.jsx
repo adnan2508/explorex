@@ -17,7 +17,7 @@ const AllTouristSpot = () => {
 
       <div className="w-11/12 mx-auto mt-10 mb-10">
         <h2 className="text-center text-5xl font-bold">
-          All tourist spot: {spots.length}
+          All Tourist Spot
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3">

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AllSpotCard = ({spot}) => {
   return (
@@ -14,7 +15,9 @@ const AllSpotCard = ({spot}) => {
           <p className="text-lg">Travel Time: {spot.time} Day</p>
           <p className="text-lg">Seasonality: {spot.season}</p>
           <div className="card-actions justify-end">
+            <Link to={`/spotDetails/${spot._id}`}>
             <button className="btn btn-primary text-white">View Details</button>
+            </Link>
           </div>
         </div>
       </div>

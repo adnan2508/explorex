@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const AllSpotCard = ({spot}) => {
+    const {spotName, country, location, cost, description, season, visitor, time, name, email, image} = spot;
   return (
     <div className="w-11/12 mx-auto">
       <div className="card card-compact w-96 bg-base-100 shadow-xl mt-10 mr-4">

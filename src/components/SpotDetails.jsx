@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const SpotDetails = () => {
-    const spots = useLoaderData();
+    const spot = useLoaderData();
   return (
     <div>
         <Helmet>
@@ -15,12 +15,12 @@ const SpotDetails = () => {
       <div className="card lg:card-side bg-base-100 shadow-xl my-5">
         <figure>
           <img
-            src="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
-            alt="Album"
+            src={spot.image}
+            alt={spot.spotName}
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Title</h2>
+          <h2 className="card-title">Title {spot.spotName}</h2>
           <p>Click the button to listen on Spotiwhy app.</p>
           <div className="card-actions justify-end">
             <button className="btn btn-primary">Listen</button>

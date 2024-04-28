@@ -21,7 +21,8 @@ const SpotDetails = () => {
         <div className="card-body">
           <h2 className="text-2xl font-semibold">{spot.spotName}</h2>
           <p className="mt-4 text-lg">{spot.description}</p>
-          <p className="mt-4 text-lg">Average Cost: ${spot.cost}</p>
+          <p className="mt-4 text-lg">Location: {spot.location}</p>
+          <p className="text-lg">Average Cost: ${spot.cost}</p>
           <p className="text-lg">Total Visitor: {spot.visitor} Per Year</p>
           <p className="text-lg">Travel Time: {spot.time} Day</p>
           <p className="text-lg">Seasonality: {spot.season}</p>

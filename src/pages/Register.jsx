@@ -34,12 +34,26 @@ const Register = () => {
     setSuccess('');
 
     // create user and update profile
-    createUser(email, password).then((result) => {
+    createUser(email, password)
+    .then((result) => {
       console.log(result.user);
       setSuccess('User created successfully!');
-      updateUserProfile(name, image).then(() => {
+      const userEmail = result.user?.email;
+      const user = {email, userEmail: userEmail};
+      fetch('http://localhost:5000/user', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data);
+      })
+      updateUserProfile(name, image)
+      .then(() => {
         navigate(from);
-        
       });
     })
     .catch(error => {

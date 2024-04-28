@@ -3,8 +3,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 const AddTouristSpot = () => {
+  const {user} = useAuth() || {};
     
   const handleAddSpot = (event) => {
     event.preventDefault();

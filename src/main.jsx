@@ -13,6 +13,7 @@ import AddTouristSpot from "./pages/AddTouristSpot.jsx";
 import PrivateRoute from "./layouts/PrivateRoute.jsx";
 import MyList from "./pages/MyList.jsx";
 import SpotDetails from "./components/SpotDetails.jsx";
+import Users from "./components/Users.jsx";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login></Login>,
+  },
+  {
+    path: "/user",
+    element: <Users></Users>,
+    loader: () => fetch('http://localhost:5000/user')
   },
   {
     path: "/register",

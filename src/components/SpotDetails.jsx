@@ -1,32 +1,41 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const SpotDetails = () => {
-    const spot = useLoaderData();
+  const spot = useLoaderData();
   return (
-    <div>
-        <Helmet>
-            <title>Details</title>
-        </Helmet>
-        <Navbar></Navbar>
-      <div className="card lg:card-side bg-base-100 shadow-xl my-5">
+    <div >
+      <Helmet>
+        <title>{spot.spotName} Details</title>
+      </Helmet>
+      <Navbar></Navbar>
+
+      <div className="w-11/12 mx-auto">
+      <div className="card lg:card-side bg-base-100 shadow-2xl my-5">
         <figure>
-          <img
-            src={spot.image}
-            alt={spot.spotName}
-          />
+          <img src={spot.image} alt={spot.spotName} className="h-full w-full"/>
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Title {spot.spotName}</h2>
-          <p>Click the button to listen on Spotiwhy app.</p>
+          <h2 className="text-2xl font-semibold">{spot.spotName}</h2>
+          <p className="mt-4 text-lg">{spot.description}</p>
+          <p className="mt-4 text-lg">Average Cost: ${spot.cost}</p>
+          <p className="text-lg">Total Visitor: {spot.visitor} Per Year</p>
+          <p className="text-lg">Travel Time: {spot.time} Day</p>
+          <p className="text-lg">Seasonality: {spot.season}</p>
+          <p className="text-lg">User Name: {spot.name}</p>
+          <p className="text-lg">User Email: {spot.email}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Listen</button>
+            <Link to="/">
+              <button className="btn btn-primary text-white px-8">Home</button>
+            </Link>
           </div>
         </div>
       </div>
+      </div>
+      
       <Footer></Footer>
     </div>
   );

@@ -2,23 +2,25 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import useAuth from "../hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const MyList = () => {
   const { user } = useAuth() || {};
   const [item, setItem] = useState([]);
-  console.log(user);
 
   useEffect(() => {
     fetch(`http://localhost:5000/myList/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setItem(data);
-        console.log(data);
       });
   }, [user]);
 
   return (
     <div>
+        <Helmet>
+            <title>Explorex- My List</title>
+        </Helmet>
       <Navbar></Navbar>
 
       <div className="w-11/12 mx-auto my-10">
@@ -37,7 +39,6 @@ const MyList = () => {
               </tr>
             </thead>
             <tbody>
-              {/* row 1 */}
               {item.map((p) => (
                 <tr>
                   <td>{p.spotName}</td>

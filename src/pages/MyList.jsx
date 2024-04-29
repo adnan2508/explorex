@@ -19,17 +19,7 @@ const MyList = () => {
 
   const handleDelete = (id) => {
     //make sure he confirms
-    fetch(`http://localhost:5000/myList/${user?.email}/${id}`, {
-      method: "DELETE",
-      // headers: {
-      //     'content-type': 'application/json'
-      // },
-      // body: JSON.stringify
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          Swal.fire({
+     Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
             icon: "warning",
@@ -39,6 +29,12 @@ const MyList = () => {
             confirmButtonText: "Yes, delete it!",
           }).then((result) => {
             if (result.isConfirmed) {
+                fetch(`http://localhost:5000/myList/${user?.email}/${id}`, {
+      method: "DELETE",
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
                 text: "Your file has been deleted.",

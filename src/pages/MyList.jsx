@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import useAuth from "../hooks/useAuth";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyList = () => {
   const { user } = useAuth() || {};
@@ -19,22 +20,22 @@ const MyList = () => {
 
   const handleDelete = (id) => {
     //make sure he confirms
-     Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
-          }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`http://localhost:5000/myList/${user?.email}/${id}`, {
-      method: "DELETE",
-    })
-    .then((res) => res.json())
-    .then((data) => {
-        if (data.deletedCount > 0) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/myList/${user?.email}/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
                 text: "Your file has been deleted.",
@@ -45,8 +46,8 @@ const MyList = () => {
               setItem(remainingItem);
             }
           });
-        }
-      });
+      }
+    });
   };
 
   return (
@@ -79,13 +80,11 @@ const MyList = () => {
                   <td>{p.country}</td>
                   <td>${p.cost}</td>
                   <td className="flex flex-col gap-3">
-                    <button className="btn btn-accent text-white">
-                      Update
-                    </button>
-                    <button
-                      onClick={() => handleDelete(p._id)}
-                      className="btn btn-error text-white"
-                    >
+                    <Link to={`/updateSpot/${p._id}`} className="btn btn-accent text-white">
+                      <button>Update</button>
+                    </Link>
+                    <button onClick={() => handleDelete(p._id)}
+                      className="btn btn-error text-white">
                       Delete
                     </button>
                   </td>

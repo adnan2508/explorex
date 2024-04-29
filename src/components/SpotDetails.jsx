@@ -1,11 +1,13 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const SpotDetails = () => {
   const spot = useLoaderData();
+  const {id} = useParams();
+  console.log(id);
   return (
     <div >
       <Helmet>

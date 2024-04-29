@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import useAuth from "../hooks/useAuth";
-import ListTable from "../components/ListTable";
 
 const MyList = () => {
   const { user } = useAuth() || {};
@@ -25,11 +24,36 @@ const MyList = () => {
       <div className="w-11/12 mx-auto my-10">
         <h2 className="text-center text-5xl font-bold">My Added List</h2>
 
-        {
-        item?.map((p) => <ListTable p={p}></ListTable>)
-        }
+        <div className="overflow-x-auto mt-8">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Country</th>
+                <th>Average Cost</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* row 1 */}
+              {item.map((p) => (
+                <tr>
+                  <td>{p.spotName}</td>
+                  <td>{p.location}</td>
+                  <td>{p.country}</td>
+                  <td>${p.cost}</td>
+                  <td className="flex flex-col gap-3">
+                    <button className="btn btn-info text-white">Update</button>
+                    <button className="btn btn-error text-white">Delete</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-
       <Footer></Footer>
     </div>
   );

@@ -23,6 +23,8 @@ const MyList = () => {
       <Navbar></Navbar>
 
       <div className="w-11/12 mx-auto my-10">
+        <h2 className="text-center text-5xl font-bold">My Added List</h2>
+
         {
         item?.map((p) => <ListTable p={p}></ListTable>)
         }

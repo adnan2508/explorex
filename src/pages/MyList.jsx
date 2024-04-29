@@ -16,6 +16,27 @@ const MyList = () => {
       });
   }, [user]);
 
+  const handleDelete = id => {
+    //make sure he confirms
+    fetch(`http://localhost:5000/myList/${user?.email}/${id}`, {
+        method: "DELETE",
+        // headers: {
+        //     'content-type': 'application/json'
+        // },
+        // body: JSON.stringify
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.deletedCount>0){
+            console.log('deleted success!');
+
+            //remove the list item from UI
+            const remainingItem = item.filter(i => i._id !== id);
+            setItem(remainingItem);
+        }
+    })
+  }
+
   return (
     <div>
         <Helmet>
@@ -46,8 +67,8 @@ const MyList = () => {
                   <td>{p.country}</td>
                   <td>${p.cost}</td>
                   <td className="flex flex-col gap-3">
-                    <button className="btn btn-info text-white">Update</button>
-                    <button className="btn btn-error text-white">Delete</button>
+                    <button className="btn btn-accent text-white">Update</button>
+                    <button onClick={() => handleDelete(p._id)} className="btn btn-error text-white">Delete</button>
                   </td>
                 </tr>
               ))}

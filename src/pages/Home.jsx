@@ -40,7 +40,7 @@ const Home = () => {
 
       <div className="w-11/12 mx-auto my-5">
         <h2 className="text-center text-5xl font-semibold">Countries</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 mt-8">
           {
             countries.map(country => <CountryCard country={country}></CountryCard>)
           }

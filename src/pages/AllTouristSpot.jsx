@@ -29,16 +29,12 @@ const AllTouristSpot = () => {
 
         <div className="flex justify-center my-8">
           <div className="relative">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="bg-white text-gray-700 border border-gray-300 py-2 px-4 rounded inline-flex items-center"
-            >
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="bg-white text-gray-700 border border-gray-300 py-2 px-4 rounded inline-flex items-center">
               <span>Sort by</span>
               <svg
                 className="fill-current h-4 w-4 ml-2"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M10 12l-6-6 1.5-1.5L10 9l4.5-4.5L16 6l-6 6z" />
               </svg>
             </button>
@@ -48,14 +44,12 @@ const AllTouristSpot = () => {
                   className="py-1"
                   role="menu"
                   aria-orientation="vertical"
-                  aria-labelledby="options-menu"
-                >
+                  aria-labelledby="options-menu">
                   <button
                     onClick={() => sortSpotsByCost()}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
-                    role="menuitem"
-                  >
-                    Average Cost (Low to High)
+                    role="menuitem">
+                    Average Cost
                   </button>
                 </div>
               </div>

@@ -69,7 +69,7 @@ const Home = () => {
 
       <div className="w-11/12 mx-auto">
         <h2 className="text-center text-5xl font-semibold">Meet Our Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 my-8">
+        <div className="my-7">
         <OurTeam></OurTeam>
         </div>
       </div>

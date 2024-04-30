@@ -9,7 +9,7 @@ import CountryCard from "../components/CountryCard";
 
 const Home = () => {
   const countries = useLoaderData();
-  console.log(countries);
+  
   const [text] = useTypewriter({
     words: ["Partner", "Guide", "Companion", "Friend"],
     loop: {},
@@ -24,7 +24,7 @@ const Home = () => {
       </Helmet>
       <Navbar></Navbar>
 
-      <div className="w-11/12 mx-auto mt-8">
+      <div className="w-11/12 mx-auto">
         <h2 className="text-center text-4xl font-bold" style={{ margin: "30px"}}
         >
           Explorex! Your Best Travel

@@ -14,6 +14,7 @@ import PrivateRoute from "./layouts/PrivateRoute.jsx";
 import MyList from "./pages/MyList.jsx";
 import SpotDetails from "./components/SpotDetails.jsx";
 import UpdateSpot from "./pages/UpdateSpot.jsx";
+import PlacesOfCountry from "./pages/PlacesOfCountry.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,33 +24,51 @@ const router = createBrowserRouter([
     loader: () => fetch(`http://localhost:5000/country`),
   },
   {
+    path: "/placesOfCountry",
+    element: <PlacesOfCountry></PlacesOfCountry>,
+  },
+  {
     path: "*",
     element: <NotFound></NotFound>,
   },
   {
     path: "/allTouristSpot",
     element: <AllTouristSpot></AllTouristSpot>,
-    loader: () => fetch('http://localhost:5000/spot')
+    loader: () => fetch("http://localhost:5000/spot"),
   },
   {
     path: "/spotDetails/:id",
-    element: <PrivateRoute>
-      <SpotDetails></SpotDetails>
-    </PrivateRoute> ,
-    loader: ({params}) => fetch(`http://localhost:5000/spot/${params.id}`)
+    element: (
+      <PrivateRoute>
+        <SpotDetails></SpotDetails>
+      </PrivateRoute>
+    ),
+    loader: ({ params }) => fetch(`http://localhost:5000/spot/${params.id}`),
   },
   {
     path: "/addTouristSpot",
-    element: <PrivateRoute><AddTouristSpot></AddTouristSpot></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <AddTouristSpot></AddTouristSpot>
+      </PrivateRoute>
+    ),
   },
   {
     path: "/myList",
-    element: <PrivateRoute><MyList></MyList></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <MyList></MyList>
+      </PrivateRoute>
+    ),
   },
   {
     path: "/updateSpot/:id",
-    element: <PrivateRoute><UpdateSpot></UpdateSpot></PrivateRoute>,
-    loader: ({params}) => fetch(`http://localhost:5000/spot/${params.id}`)
+    element: (
+      <PrivateRoute>
+        <UpdateSpot></UpdateSpot>
+      </PrivateRoute>
+    ),
+    loader: ({ params }) => fetch(`http://localhost:5000/spot/${params.id}`),
   },
   {
     path: "/login",
@@ -62,9 +81,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-   <React.StrictMode>
+  <React.StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
-   </React.StrictMode>
+  </React.StrictMode>
 );

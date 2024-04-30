@@ -72,20 +72,6 @@ const Navbar = () => {
                     My List
                   </Link>
                 </li>
-                <li>
-                  <a className="text-black">Parent</a>
-                  <ul className="p-2">
-                    <li className="text-black">
-                      <a>Submenu 1</a>
-                    </li>
-                    <li className="text-black">
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a className="text-black">Item 3</a>
-                </li>
               </ul>
             ) : (
               <ul
@@ -101,20 +87,6 @@ const Navbar = () => {
                   <Link to="/allTouristSpot" className="text-black">
                     All Tourist Spot
                   </Link>
-                </li>
-                <li>
-                  <a className="text-black">Parent</a>
-                  <ul className="p-2">
-                    <li className="text-black">
-                      <a>Submenu 1</a>
-                    </li>
-                    <li className="text-black">
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a className="text-black">Item 3</a>
                 </li>
               </ul>
             )}
@@ -139,22 +111,6 @@ const Navbar = () => {
               <li>
                 <Link to="/myList">My List</Link>
               </li>
-              <li>
-                <details>
-                  <summary>Parent</summary>
-                  <ul className="p-2">
-                    <li className="text-black">
-                      <a>Submenu 1</a>
-                    </li>
-                    <li className="text-black">
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
             </ul>
           ) : (
             <ul className="menu menu-horizontal px-1">
@@ -163,22 +119,6 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/allTouristSpot">All Tourist Spot</Link>
-              </li>
-              <li>
-                <details>
-                  <summary>Parent</summary>
-                  <ul className="p-2">
-                    <li className="text-black">
-                      <a>Submenu 1</a>
-                    </li>
-                    <li className="text-black">
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <a>Item 3</a>
               </li>
             </ul>
           )}

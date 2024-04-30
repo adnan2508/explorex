@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CountryCard = ({country}) => {
   return (
@@ -16,7 +17,7 @@ const CountryCard = ({country}) => {
           <p className="text-lg font-normal">{country.description}</p>
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 

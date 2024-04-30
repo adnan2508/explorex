@@ -7,11 +7,11 @@ import { Helmet } from "react-helmet";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import CountryCard from "../components/CountryCard";
 import SpotCard from "../components/SpotCard";
+import OurTeam from "../components/OurTeam";
 
 const Home = () => {
   const [allSpot, setAllSpot] = useState([]);
   const countries = useLoaderData();
-  console.log(allSpot);
 
   useEffect(() => {
     fetch(`http://localhost:5000/spot`)
@@ -35,7 +35,7 @@ const Home = () => {
       </Helmet>
       <Navbar></Navbar>
 
-      <div className="w-11/12 mx-auto">
+      <div className="w-11/12 mx-auto my-8">
         <h2 className="text-center text-4xl font-bold" style={{ margin: "30px"}}
         >
           Explorex! Your Best Travel
@@ -64,6 +64,13 @@ const Home = () => {
           {
             countries.map(country => <CountryCard key={country._id} country={country}></CountryCard>)
           }
+        </div>
+      </div>
+
+      <div className="w-11/12 mx-auto">
+        <h2 className="text-center text-5xl font-semibold">Meet Our Team</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 my-8">
+        <OurTeam></OurTeam>
         </div>
       </div>
 

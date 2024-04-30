@@ -8,6 +8,7 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import CountryCard from "../components/CountryCard";
 import SpotCard from "../components/SpotCard";
 import OurTeam from "../components/OurTeam";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 const Home = () => {
   const [allSpot, setAllSpot] = useState([]);
@@ -72,6 +73,13 @@ const Home = () => {
         <div className="my-7">
         <OurTeam></OurTeam>
         </div>
+      </div>
+
+      <div className="w-11/12 mx-auto">
+      <h2 className="text-center text-5xl font-semibold my-8">Why Choose Us</h2>
+      <div className="my-7">
+        <WhyChooseUs></WhyChooseUs>
+      </div>
       </div>
 
       <Footer></Footer>

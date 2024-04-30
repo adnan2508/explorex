@@ -11,7 +11,7 @@ const MyList = () => {
   const [item, setItem] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myList/${user?.email}`)
+    fetch(`https://explorex-server.vercel.app/myList/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setItem(data);
@@ -30,7 +30,7 @@ const MyList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/myList/${user?.email}/${id}`, {
+        fetch(`https://explorex-server.vercel.app/myList/${user?.email}/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
@@ -14,18 +13,12 @@ import PrivateRoute from "./layouts/PrivateRoute.jsx";
 import MyList from "./pages/MyList.jsx";
 import SpotDetails from "./components/SpotDetails.jsx";
 import UpdateSpot from "./pages/UpdateSpot.jsx";
-import PlacesOfCountry from "./pages/PlacesOfCountry.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
-    // loader: () => fetch(`http://localhost:5000/spot`),
-    loader: () => fetch(`http://localhost:5000/country`),
-  },
-  {
-    path: "/placesOfCountry",
-    element: <PlacesOfCountry></PlacesOfCountry>,
+    loader: () => fetch(`https://explorex-server.vercel.app/country`)
   },
   {
     path: "*",
@@ -34,16 +27,16 @@ const router = createBrowserRouter([
   {
     path: "/allTouristSpot",
     element: <AllTouristSpot></AllTouristSpot>,
-    loader: () => fetch("http://localhost:5000/spot"),
+    loader: () => fetch(`https://explorex-server.vercel.app/spot`)
   },
   {
     path: "/spotDetails/:id",
-    element: (
+    element: 
       <PrivateRoute>
         <SpotDetails></SpotDetails>
-      </PrivateRoute>
-    ),
-    loader: ({ params }) => fetch(`http://localhost:5000/spot/${params.id}`),
+      </PrivateRoute>,
+    
+    loader: ({ params }) => fetch(`https://explorex-server.vercel.app/spot/${params.id}`),
   },
   {
     path: "/addTouristSpot",
@@ -55,20 +48,20 @@ const router = createBrowserRouter([
   },
   {
     path: "/myList",
-    element: (
+    element: 
       <PrivateRoute>
         <MyList></MyList>
-      </PrivateRoute>
-    ),
+      </PrivateRoute>,
+   
   },
   {
     path: "/updateSpot/:id",
-    element: (
+    element: 
       <PrivateRoute>
         <UpdateSpot></UpdateSpot>
-      </PrivateRoute>
-    ),
-    loader: ({ params }) => fetch(`http://localhost:5000/spot/${params.id}`),
+      </PrivateRoute>,
+    
+    loader: ({ params }) => fetch(`https://explorex-server.vercel.app/spot/${params.id}`),
   },
   {
     path: "/login",

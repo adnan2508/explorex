@@ -27,7 +27,7 @@ const AddTouristSpot = () => {
     console.log(newSpot);
 
     //send data to the server
-    fetch("http://localhost:5000/spot", {
+    fetch(`https://explorex-server.vercel.app/spot`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -40,7 +40,7 @@ const Register = () => {
       setSuccess('User created successfully!');
       const userEmail = result.user?.email;
       const user = {email, userEmail: userEmail};
-      fetch('http://localhost:5000/user', {
+      fetch(`https://explorex-server.vercel.app/user`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

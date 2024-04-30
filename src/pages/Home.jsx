@@ -11,15 +11,16 @@ import OurTeam from "../components/OurTeam";
 import WhyChooseUs from "../components/WhyChooseUs";
 
 const Home = () => {
+   const countries = useLoaderData();
+
   const [allSpot, setAllSpot] = useState([]);
-  const countries = useLoaderData();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/spot`)
+    fetch(`https://explorex-server.vercel.app/spot`)
     .then(res=>res.json())
-    .then(data=>{
+    .then(data=>
       setAllSpot(data)
-    })
+    )
   }, [])
   
   const [text] = useTypewriter({
@@ -54,7 +55,7 @@ const Home = () => {
         <h2 className="text-center text-5xl font-semibold">Tourists Spots</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 mt-8">
           {
-            allSpot.map(spot => <SpotCard key={spot._id} spot={spot}></SpotCard>)
+            allSpot?.map(spot => <SpotCard key={spot._id} spot={spot}></SpotCard>)
           }
         </div>
       </div>
@@ -63,7 +64,7 @@ const Home = () => {
         <h2 className="text-center text-5xl font-semibold">Countries</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 mt-8">
           {
-            countries.map(country => <CountryCard key={country._id} country={country}></CountryCard>)
+            countries?.map(country => <CountryCard key={country._id} country={country}></CountryCard>)
           }
         </div>
       </div>

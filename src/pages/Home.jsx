@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
@@ -9,9 +9,17 @@ import CountryCard from "../components/CountryCard";
 import SpotCard from "../components/SpotCard";
 
 const Home = () => {
+  const [allSpot, setAllSpot] = useState([]);
   const countries = useLoaderData();
-  const allSpot = useLoaderData();
   console.log(allSpot);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/spot`)
+    .then(res=>res.json())
+    .then(data=>{
+      setAllSpot(data)
+    })
+  }, [])
   
   const [text] = useTypewriter({
     words: ["Partner", "Guide", "Companion", "Friend"],
@@ -41,7 +49,7 @@ const Home = () => {
         <Banner></Banner>
       </div>
 
-      <div className="w-11/12 mx-auto my-5">
+      <div className="w-11/12 mx-auto mt-5">
         <h2 className="text-center text-5xl font-semibold">Tourists Spots</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 mt-8">
           {
@@ -54,7 +62,7 @@ const Home = () => {
         <h2 className="text-center text-5xl font-semibold">Countries</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 mt-8">
           {
-            countries.map(country => <CountryCard country={country}></CountryCard>)
+            countries.map(country => <CountryCard key={country._id} country={country}></CountryCard>)
           }
         </div>
       </div>

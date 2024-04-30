@@ -36,7 +36,7 @@ const SpotDetails = () => {
               <button className="btn btn-primary text-white px-8">Go Back</button>
             </Link>
             <Link to="/">
-              <button className="btn btn-primary text-white px-8">Home</button>
+              <button className="btn btn-secondary text-white px-8">Home</button>
             </Link>
           </div>
         </div>

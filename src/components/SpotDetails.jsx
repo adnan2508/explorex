@@ -7,7 +7,7 @@ import Footer from "./Footer";
 const SpotDetails = () => {
   const spot = useLoaderData();
   const {id} = useParams();
-  console.log(id);
+  
   return (
     <div >
       <Helmet>
@@ -34,6 +34,9 @@ const SpotDetails = () => {
           <div className="card-actions justify-end">
             <Link to="/allTouristSpot">
               <button className="btn btn-primary text-white px-8">Go Back</button>
+            </Link>
+            <Link to="/">
+              <button className="btn btn-primary text-white px-8">Home</button>
             </Link>
           </div>
         </div>

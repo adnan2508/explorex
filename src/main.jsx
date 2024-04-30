@@ -19,7 +19,8 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
-    loader: () => fetch(`http://localhost:5000/country`)
+    loader: () => fetch(`http://localhost:5000/country`),
+    loader: () => fetch(`http://localhost:5000/spot`)
   },
   {
     path: "*",
@@ -61,9 +62,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
+   <React.StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
-  // </React.StrictMode>
+   </React.StrictMode>
 );

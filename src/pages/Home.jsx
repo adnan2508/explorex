@@ -6,9 +6,12 @@ import Footer from "../components/Footer";
 import { Helmet } from "react-helmet";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import CountryCard from "../components/CountryCard";
+import SpotCard from "../components/SpotCard";
 
 const Home = () => {
   const countries = useLoaderData();
+  const allSpot = useLoaderData();
+  console.log(allSpot);
   
   const [text] = useTypewriter({
     words: ["Partner", "Guide", "Companion", "Friend"],
@@ -36,6 +39,15 @@ const Home = () => {
           </span>
         </h2>
         <Banner></Banner>
+      </div>
+
+      <div className="w-11/12 mx-auto my-5">
+        <h2 className="text-center text-5xl font-semibold">Tourists Spots</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 mt-8">
+          {
+            allSpot.map(spot => <SpotCard key={spot._id} spot={spot}></SpotCard>)
+          }
+        </div>
       </div>
 
       <div className="w-11/12 mx-auto my-5">
